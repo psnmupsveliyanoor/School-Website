@@ -1,0 +1,57 @@
+You are an expert MERN stack developer. Your task is to build a complete, responsive, production-ready School Website with a public-facing frontend and a secure Admin CMS backend. 
+
+To save generation tokens and minimize decision-making, adhere STRICTLY to the architecture, schemas, and design instructions below. Do not ask follow-up questions; generate the complete project structure and code.
+
+### 1. TECH STACK & ARCHITECTURE
+* **Frontend:** React (Vite), React Router DOM, Tailwind CSS. Context API for global state/auth.
+* **Backend:** Node.js, Express.js.
+* **Database:** MongoDB (Mongoose).
+* **Security:** JWT for Admin authentication, bcrypt for password hashing.
+* **Images:** Use `https://placehold.co/{width}x{height}` for ALL images to match a wireframe aesthetic.
+
+### 2. DATABASE SCHEMAS (Mongoose)
+Create the following models:
+* `Admin`: { username (String, unique), password (String) }
+* `Announcement`: { title (String), content (String), date (Date, default: Date.now) }
+* `Event`: { title (String), date (Date), location (String), description (String), imageUrl (String) }
+* `Staff`: { name (String), role (String), department (String), bio (String), imageUrl (String) }
+* `Gallery`: { title (String), category (String), imageUrl (String) }
+* `Facility`: { name (String), description (String), imageUrl (String) }
+
+### 3. BACKEND API ROUTES
+Implement standard RESTful CRUD routes for all models under `/api/`.
+* `/api/auth/login`: Authenticate admin, return JWT.
+* Protect all POST/PUT/DELETE routes using a middleware that verifies the JWT.
+
+### 4. FRONTEND UI & DESIGN (Tailwind CSS)
+The design must be minimalist, modern, and highly mobile-responsive. Use clean typography, ample padding (e.g., `py-20`), and neutral backgrounds (`bg-white` and `bg-gray-50`). 
+
+Implement the following public pages based on these exact wireframe specifications:
+
+* **Global Navbar:** Logo on the far left. Navigation links in the center. "Contact" or CTA buttons on the far right. Use a hamburger menu for mobile.
+* **Home Page:** * Hero section with a large background image/video placeholder and an overlaid welcome message.
+    * "Impact by the numbers" section (e.g., grid showing years established, number of students).
+    * Latest Announcements banner.
+* **About Page:**
+    * School history and mission statement.
+    * Values section displayed in a 2x2 or 3x3 grid.
+    * Management/Governing body testimonials using clean card layouts.
+* **Events Page:** * Split layout: On the desktop, a large featured event on the left (image + details), and a vertical list of upcoming events on the right with dates (Month/Day blocks) and "Save my spot" buttons.
+* **Staff Page (Our Team):** * A responsive grid (1 col mobile, 3 cols desktop). 
+    * Each card must have a circular or square image placeholder, Name, Job Title, short bio, and small social media icon placeholders.
+* **Facilities Page:** * Alternating layout for major facilities (Labs, Library, etc.): Image on the left / Text on the right, followed by Text on the left / Image on the right.
+* **Gallery Page:** * Implement an asymmetric/masonry-style grid. For example: one large feature image on the left spanning two rows, with four smaller images in a 2x2 grid on the right. 
+* **Contact Page:** * Left column: Contact details (Email, Phone, Office Address). Seed the default address as "Trivandrum, Kerala".
+    * Right column: A large rectangular placeholder representing a map (`https://placehold.co/800x600?text=Map`).
+
+### 5. ADMIN PORTAL (CMS)
+* **Route:** `/admin` (Redirect to `/admin/login` if not authenticated).
+* **Dashboard:** A simple sidebar layout.
+* **Features:** Provide basic, functional tables to view, add, edit, and delete Announcements, Events, Staff, Gallery items, and Facilities. 
+* Use standard HTML forms for inputs. Admin image fields should accept local image files, upload them to Cloudinary through the backend, and store only the returned URL in MongoDB.
+
+### 6. EXECUTION INSTRUCTIONS
+1. Output the backend code (server setup, DB connection, models, routes).
+2. Output the frontend code (Vite setup, Tailwind config, Context providers, App routing, Page components).
+3. Ensure all Tailwind classes handle mobile responsiveness (e.g., `flex-col md:flex-row`).
+4. Include a setup script or `README.md` instructions for installing dependencies and seeding the initial Admin user.

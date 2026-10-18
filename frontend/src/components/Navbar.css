@@ -1,0 +1,374 @@
+:root {
+
+    --accent-primary: #2563eb;
+    --text-main: #1e293b;
+    --text-soft: #64748b;
+
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar {
+
+    position: fixed;
+    font-family: 'Plus Jakarta Sans', 'Manjari', sans-serif;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 92%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 2rem;
+        z-index: 999;
+        background: rgba(255, 255, 255, .6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, .45);
+        border-radius: 999px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, .08);
+
+}
+/*
+.navbar-scrolled{
+
+    background:white;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+}
+*/
+/* ===========================
+LOGO
+=========================== */
+
+.logo{
+
+    font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: .18em;
+
+}
+
+/* ===========================
+NAVIGATION
+=========================== */
+
+.desktop-nav{
+
+    display:flex;
+
+    gap:2rem;
+
+    align-items:center;
+
+}
+
+.nav-link{
+
+    text-decoration:none;
+
+    color:var(--text-main);
+
+    font-weight:500;
+
+    position:relative;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:var(--accent-primary);
+
+}
+
+.nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--accent-primary);
+
+    transition:.3s;
+
+}
+
+.nav-link:hover::after{
+
+    width:100%;
+
+}
+
+.nav-link.active{
+
+    color:var(--accent-primary);
+
+}
+
+.nav-link.active::after{
+
+    width:100%;
+
+}
+
+/* ===========================
+RIGHT SIDE
+=========================== */
+
+.navbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+}
+
+/* ===========================
+LANG SWITCHER
+=========================== */
+
+.lang-switcher{
+
+    display:flex;
+
+    background:rgba(15,23,42,.05);
+
+    padding:3px;
+
+    border-radius:999px;
+
+}
+
+.lang-btn{
+
+    border:none;
+
+    background:none;
+
+    padding:.45rem .9rem;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    color:var(--text-soft);
+
+    transition:.3s;
+
+}
+
+.lang-btn.active{
+
+    background:white;
+
+    color:var(--accent-primary);
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+BUTTONS
+=========================== */
+
+.btn{
+
+    text-decoration:none;
+
+    border-radius:999px;
+
+    padding:.7rem 1.5rem;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-outline{
+
+    background:rgba(255,255,255,.45);
+
+    color:var(--text-main);
+
+    border:1px solid rgba(255,255,255,.55);
+
+}
+
+.btn-outline:hover{
+
+    background:var(--accent-primary);
+
+    color:white;
+
+}
+
+/* ===========================
+MOBILE BUTTON
+=========================== */
+
+.mobile-btn{
+
+    display:none;
+
+    background:none;
+
+    border:none;
+
+    font-size:1.6rem;
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+MOBILE MENU
+=========================== */
+
+.mobile-menu{
+
+    position:fixed;
+
+    top:95px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:92%;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:1.5rem;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.2rem;
+
+    box-shadow:0 20px 40px rgba(11,36,84,.15);
+
+    max-height:calc(100vh - 110px);
+
+    overflow-y:auto;
+
+    z-index:999;
+
+}
+
+.mobile-link{
+
+    text-decoration:none;
+
+    color:var(--text-main);
+
+    font-weight:500;
+
+    padding:.8rem;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.mobile-link:hover{
+
+    background:#f3f4f6;
+
+}
+
+.mobile-link.active{
+
+    color:var(--accent-primary);
+
+    background:#eff6ff;
+
+}
+
+.mobile-contact{
+
+    margin-top:1rem;
+
+    text-align:center;
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media (max-width:1024px){
+
+    .navbar {
+        width: 95%;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .desktop-nav {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+@media (max-width:800px){
+
+    .desktop-nav,
+    .navbar-right .btn-outline{
+
+        display:none;
+
+    }
+
+    .mobile-btn{
+
+        display:block;
+
+    }
+
+}
+
+@media (max-width:640px){
+
+    .navbar{
+
+        padding:.8rem 1.2rem;
+
+    }
+
+    .logo{
+
+        font-size:.95rem;
+
+    }
+
+}
